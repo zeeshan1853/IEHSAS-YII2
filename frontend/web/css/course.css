@@ -1,0 +1,91 @@
+/*-- Courses Section --*/
+
+body{
+    background: url('../images/courses-bg-1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.heading-border{
+    background: transparent; 
+    color: white;
+    display: inline-block; 
+    border-bottom: 15px solid #ff5722;
+    border-right: 15px solid transparent;
+}
+.courses_section{
+    padding:5em 0;
+}
+.courses-heading h2{
+    color: #FF5722;
+    font-size: 3em;
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+}
+.courses-heading h2 span{
+    color:#212121 !important;
+}
+
+.view {
+    text-align: center;
+    padding: .5em;
+    /*background: #e2e0e0;*/
+    /*background: rgba(0, 0, 0, 0.57);*/
+    background:rgba(84, 123, 122, 0.57);
+
+}
+a.text-box{
+    text-decoration: none;
+}
+a.text-box:hover>.view{
+    background: rgba(57, 187, 184, 0.57);
+}
+.agile_text_box p {
+    line-height: 1.8em;
+    margin: 0;
+    color: #dec92d;
+}
+.agile_text_box i.fa{
+    color: #FF5722;
+    font-size: 2em;
+}
+.agile_text_box h3{
+    font-size: .9em;
+    color: #010200;
+    margin: 1em 0 .5em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.courses_left_section {
+    padding-left: 0;
+    float: left;
+}
+.courses_left_section_grid {
+    padding-left: 0;
+    padding-top: 10px;
+}
+.courses_grid:nth-child(2){
+    margin:1em 0 0;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+}
+.view-tile{
+    border: 1px solid #689cfd;
+    cursor: pointer;
+}
+.margin-left-15{
+    margin-left: 15px !important;
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .courses_left_section_grid {
+        padding-left: 0;
+        padding-top: 0px;
+    }
+}
+
+/*-- Courses Section --*/

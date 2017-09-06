@@ -13,7 +13,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+            'csrfParam' => '_csrf-frontend-iehsas',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -22,7 +22,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'advanced-frontend-iehsas',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
