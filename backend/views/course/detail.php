@@ -12,7 +12,7 @@ $baseUrl = BaseUrl::base();
 <?php
 $form = ActiveForm::begin([
             'id' => 'courseForm',
-            'action' => $baseUrl . '/course/new-course',
+            'action' => $baseUrl . '/course/detail',
             'enableAjaxValidation' => true,
             'validateOnBlur' => true,
             'validationUrl' => Yii::$app->urlManager->createUrl("course/validate"),
@@ -29,6 +29,7 @@ $form = ActiveForm::begin([
 <?= $form->field($model, 'fee', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Course Fee']])->textInput()->label(true); ?>
 <?= $form->field($model, 'mode_of_study', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Mode of study']])->textInput()->label(true); ?>
 <?= $form->field($model, 'detail', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'Course Detail']])->textarea(['rows' => '6'])->label(true); ?>
+<?= $form->field($model, 'c_id', ['inputOptions' => ['class' => 'form-control', 'placeholder' => 'course id']])->hiddenInput(); ?>
 
 <?= Html::submitButton('Submit', ['class' => 'btn']) ?>
 

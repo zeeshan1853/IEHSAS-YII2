@@ -18,30 +18,66 @@ use yii\widgets\ActiveForm;
 class CourseController extends Controller {
 
     public function actionIndex() {
-        
+
         $courses = Courses::find()->all();
-        
-        return $this->render('index',['courses' => $courses]);
-        
+
+        return $this->render('index', ['courses' => $courses]);
     }
 
-    public function actionNewCourse() {
+    public function actionDetail() {
 
         $model = new CourseForm();
         $request = Yii::$app->request;
         if ($request->isPost) {
 
             $model->load($request->post());
-            $course = new Courses();
-            $course->attributes = $model->attributes;
-            if ($course->save()) {
-                Yii::$app->getSession()->setFlash('success', 'course has been added.');
-                return $this->redirect(['index']);
+
+
+            if (isset($model->c_id) && $model->c_id !== NULL && $model->c_id !== '') { //update case
+                $course = Courses::findOne($model->c_id);
+                $course->attributes = $model->attributes;
+                if ($course->update()) {
+                    Yii::$app->getSession()->setFlash('success', 'course has been updated.');
+                    return $this->redirect(['index']);
+                } else {
+                    Yii::$app->getSession()->setFlash('error', 'Nothing has changed');
+                }
             } else {
-                Yii::$app->getSession()->setFlash('error', 'course has not been added.');
+                $course = new Courses();
+                $course->attributes = $model->attributes;
+                $course->save() ? Yii::$app->getSession()->setFlash('success', 'course has been added.') : Yii::$app->getSession()->setFlash('error', 'course has not been added.');
+                return $this->redirect(['index']);
+            }
+        } else if ($request->get('id') !== NULL) {
+            $course_id = $request->get('id');
+            $course = Courses::findOne($course_id);
+            if (isset($course)) {
+                $model->attributes = $course->attributes;
+                $model->c_id = $course->_id;
             }
         }
-        return $this->render('add-course', ['model' => $model]);
+        return $this->render('detail', ['model' => $model]);
+    }
+    
+    public function actionDelete(){
+        
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        
+        $request = Yii::$app->request;
+        
+        if (!($request->isPost && $request->isAjax)) {
+            throw new ForbiddenHttpException("You are not allowed to access this page.");
+        }
+       
+        
+            $course_id = $request->post('id');
+            $course = Courses::findOne($course_id);
+            if( $course->delete() ){
+                return ['msgType' => 'SUC', 'msg' => 'Course has been deleted'];
+            }else{
+                return ['msgType' => 'ERR', 'msg' => 'Can not delte this course'];
+            }
+        
     }
 
     public function actionValidate() {

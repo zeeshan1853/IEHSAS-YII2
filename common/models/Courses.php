@@ -50,7 +50,9 @@ class Courses extends ActiveRecord
     {
         return [
             [['name', 'detail', 'duration', 'course_type', 'mode_of_study', 'fee' ,'created_at', 'updated_at'], 'safe'],
-            [ 'name', 'unique']
+            [ 'name', 'unique'],
+//            [ 'name', 'unique', 'on' => 'create'],
+//            [['name'], 'unique', 'on'=> 'update', 'when' => function($model){ return $model->isAttributeChanged('name');}],
         ];
     }
 
