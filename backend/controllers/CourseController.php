@@ -19,7 +19,9 @@ class CourseController extends Controller {
 
     public function actionIndex() {
         
-        return $this->render('index');
+        $courses = Courses::find()->all();
+        
+        return $this->render('index',['courses' => $courses]);
         
     }
 
