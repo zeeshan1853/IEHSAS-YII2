@@ -12,18 +12,20 @@ use yii\mongodb\ActiveRecord;
 
 /**
  * @property \MongoDB\BSON\ObjectID|string $_id
- * @property string $name
  * @property mixed $detail
- * @property string $consultancy_type
+ * @property date $new_date
+ * @property string $link
+ * @property string $status
+ * @property int $priority
  *
  */
-class Consultancies extends ActiveRecord {
+class News extends ActiveRecord {
 
     /**
      * @inheritdoc
      */
     public static function collectionName() {
-        return ['iehsas', 'consultancies'];
+        return ['iehsas', 'news'];
     }
 
     /**
@@ -32,33 +34,22 @@ class Consultancies extends ActiveRecord {
     public function attributes() {
         return [
             '_id',
-            'name',
             'detail',
-            'consultancy_type',
+            'news_date',
+            'link',
+            'status',
+            'priority',
             'created_at',
             'updated_at',
         ];
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules() {
         return [
-                [['name', 'detail', 'consultancy_type', 'created_at', 'updated_at'], 'safe'],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels() {
-        return [
-            '_id' => 'ID',
-            'name' => 'Name',
-            'detail' => 'Detail',
-            'created_at' => 'Date Created',
-            'updated_at' => 'Date Updated',
+                [['detail', 'date', 'link', 'status', 'priority'], 'safe'],
+                [['detail', 'link', 'status'], 'string'],
+                ['news_date', 'date'],
+                ['priority', 'int']
         ];
     }
 

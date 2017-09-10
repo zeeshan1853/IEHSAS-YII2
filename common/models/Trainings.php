@@ -15,7 +15,7 @@ use yii\mongodb\ActiveRecord;
  * @property mixed $detail
  * @property mixed $duration
  * @property string $training_type
- * @property string $mode_of_study
+ * @property string $mode_of_training
  * @property double $fee
  * 
  */
@@ -33,10 +33,10 @@ class Trainings extends ActiveRecord {
             'detail',
             'duration',
             'training_type',
-            'mode_of_study',
+            'mode_of_training',
             'fee',
-            'date_created',
-            'date_updated',
+            'created_at',
+            'updated_at',
         ];
     }
     
@@ -47,7 +47,7 @@ class Trainings extends ActiveRecord {
     public function rules()
     {
         return [
-            [['name', 'detail', 'duration', 'training_type', 'mode_of_training', 'fee' ,'date_created', 'date_updated'], 'safe'],
+            [['name', 'detail', 'duration', 'training_type', 'mode_of_training', 'fee' ,'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,9 +63,7 @@ class Trainings extends ActiveRecord {
             'duration' => 'Training Duration',
             'training_type' => 'Training Type',
             'mode_of_training' => 'Mode of Training',
-            'fee' => 'Fee',
-            'date_created' => 'Date Created',
-            'date_updated' => 'Date Updated',
+            'fee' => 'Fee'
         ];
     }
     
