@@ -20,21 +20,20 @@ class CourseForm extends Model {
     public $mode_of_study;
     public $fee;
     public $c_id;
-    
+
     public function rules() {
         return [
-            [ ['name', 'detail', 'duration', 'course_type', 'mode_of_study'],'required' ],
-            [ ['name', 'detail', 'duration', 'course_type', 'mode_of_study'],'string' ],
-            [ ['name', 'detail', 'duration', 'course_type', 'mode_of_study', 'fee'],'trim' ],
-            [ ['fee','c_id'],'safe' ],
-            [ ['fee'],'double' ],
-            [ 'name', 'validateCourseName']
+                [['name', 'detail', 'duration', 'course_type', 'mode_of_study'], 'required'],
+                [['name', 'detail', 'duration', 'course_type', 'mode_of_study'], 'string'],
+                [['name', 'detail', 'duration', 'course_type', 'mode_of_study', 'fee'], 'trim'],
+                [['fee', 'c_id'], 'safe'],
+                [['fee'], 'double'],
+                ['name', 'validateCourseName']
 //            [ 'name', 'unique', 'on' => 'create' , 'targetClass' => '\common\models\Courses', 'message' => 'This Course Already been registered' ],
 //            [['name'], 'unique', 'on'=> 'update', 'when' => function($model){ return $model->isAttributeChanged('name');}],
         ];
-        
     }
-    
+
     public function validateCourseName($attribute, $params) {
         if (isset($this->c_id) && !empty($this->c_id)) {
             $whereParams = ['AND', ['not', '_id', new \MongoDB\BSON\ObjectID($this->c_id)], ['name' => $this->name]];
@@ -46,6 +45,5 @@ class CourseForm extends Model {
             $this->addError($attribute, 'This Course name (' . $this->name . ') already exist');
         }
     }
-    
 
 }

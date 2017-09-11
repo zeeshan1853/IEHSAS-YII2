@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 $baseUrl = BaseUrl::base();
 
 ?>
-<h1>Add New Course</h1>
+<h1>Add New Consultancy</h1>
 
 <?php
 $form = ActiveForm::begin([

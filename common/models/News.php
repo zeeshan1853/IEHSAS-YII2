@@ -47,9 +47,8 @@ class News extends ActiveRecord {
     public function rules() {
         return [
                 [['detail', 'date', 'link', 'status', 'priority'], 'safe'],
-                [['detail', 'link', 'status'], 'string'],
-                ['news_date', 'date'],
-                ['priority', 'int']
+                [['detail', 'link', 'status','news_date'], 'string'],
+                ['priority', 'integer']
         ];
     }
 
