@@ -1,0 +1,621 @@
+/*********************** Navigation menu ********************/
+.navbar-bg{
+    background: #0c1019 ;
+}
+#myNavbar ul li a{
+    color: white;
+}
+#myNavbar ul li a:hover{
+    color: #cf3034;
+}
+.navbar-brand img{
+    width: 100px;
+}
+.navbar-toggle .icon-bar{
+    background: white;
+}
+/************************ Slider Section *********************/
+#slider-section .carousel-inner{
+    height: 662px;;
+}
+#first-slider .main-container {
+    padding: 0;
+}
+
+
+#first-slider .slide1 h3, #first-slider .slide2 h3, #first-slider .slide3 h3, #first-slider .slide4 h3{
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight:700;
+}
+
+#first-slider .slide1 h4,#first-slider .slide2 h4,#first-slider .slide3 h4,#first-slider .slide4 h4{
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight:700;
+}
+#first-slider .slide1 .text-left ,#first-slider .slide3 .text-left{
+    padding-left: 40px;
+}
+
+
+#first-slider .carousel-indicators {
+    /*bottom: 0;*/
+    margin-bottom: 40px !important;
+}
+#first-slider .carousel-control.right,
+#first-slider .carousel-control.left {
+    background-image: none;
+}
+#first-slider .carousel .item {
+    min-height: 425px;
+    height: 100%;
+    width:100%;
+}
+
+.carousel-inner .item .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+#first-slider h3{
+    animation-delay: 1s;
+}
+#first-slider h4 {
+    animation-delay: 2s;
+}
+#first-slider h2 {
+    animation-delay: 3s;
+}
+
+
+#first-slider .carousel-control {
+    width: 6%;
+    text-shadow: none;
+}
+
+
+#first-slider h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#first-slider .p {
+    padding-top: 125px;
+    text-align: center;
+}
+
+#first-slider .p a {
+    text-decoration: underline;
+}
+#first-slider .carousel-indicators li {
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255,255,255,.4);
+    border:none;
+    display: none;
+}
+#first-slider .carousel-indicators .active{
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border:none;
+}
+
+
+.carousel-fade .carousel-inner .item {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+
+.carousel-control .fa-angle-right, .carousel-control .fa-angle-left {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block;
+}
+.carousel-control .fa-angle-left{
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    margin-top: -15px;
+    font-size: 30px;
+    color: #fff;
+    border: 3px solid #ffffff;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 53px;
+}
+.carousel-control .fa-angle-right{
+    right: 50%;
+    width: 38px;
+    height: 38px;
+    margin-top: -15px;
+    font-size: 30px;
+    color: #fff;
+    border: 3px solid #ffffff;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 53px;
+}
+.carousel-control {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+#first-slider .slide1 {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/upper_slider-1.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#first-slider .slide2 {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/upper_slider-2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#first-slider .slide3 {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/upper_slider-3.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#first-slider .slide4 {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/upper_slider-1.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slider-thumbnail{
+    display: none;
+}
+.slider-text h4,h3{
+    display: none;
+}
+
+.carousel-indicators .btn{
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: transparent;
+    border: 2px solid #898aee;
+    margin-top: -190px;
+}
+.carousel-indicators .btn:hover{
+    color: white;
+    background-color: #cd3040;
+    border:2px solid #898aee;
+}
+.carousel-indicators a{
+    display:block;
+    margin-bottom: -20px;
+}
+#slider-section {
+    /*margin-left: -15px;*/
+    /*margin-right: -15px;*/
+}
+/********************** End Slider Section *******************/
+
+
+/************************ General Styles *********************/
+.text-white{
+    color:white;
+}
+.text-padding-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.padding-ud-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.padding-top-35{
+    padding-top: 35px;
+}
+/********************* End General Styles *******************/
+
+/********************* Nav Section Styles *******************/
+.affix {
+    top: 0;
+    width: 100%;
+    position: fixed;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+nav{
+    z-index: 99;
+    border-radius: 0px !important;
+}
+
+/******************* End Nav Section Styles *****************/
+
+
+/************************ Logo Slider Section************************/
+#logo-slider{
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/logo-bg.jpg");
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.logo-slider-wrapper{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /*background: url("images/client.jpg");*/
+}
+#logo-slider .str3-2 {
+    background:none !important;
+}
+#logo-slider .str3-2 span {
+    background-color: lightgray;
+    color:#999; margin:0 5px;
+    text-align:center;
+    font:40px/100px Arial, Helvetica, sans-serif;
+    width:100px;
+    height:100px;
+    display:inline-block; vertical-align:top;
+}
+#logo-slider .str_move{
+    left: 100%; right: auto;
+}
+/********************* End Logo Slider Section *******************/
+
+/********************* Slide Text Section *******************/
+#slide-text-section .right-text{
+    margin-top: -20px;
+}
+#slide-text-section .row .col-md-6{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#slide-text-section .row .right-text{
+    background-color: #0093b2;
+}
+
+.w3_two_grid_right_grid1{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    text-align:center;
+    border: 2px dashed red;
+    color: #0093b2;
+}
+.w3_two_grid_right_grid1 i{
+    padding-top:20px;
+}
+/*slide carousel*/
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+}
+/******************* End Slide Text Section *****************/
+
+/******************* Panels Section *****************/
+#panels-section .container .upper-panels .col-md-12 h3{
+    display: block;
+}
+#panels-section .panel:hover{
+    box-shadow: 5px 5px 5px 5px lightgray;
+}
+#panels-section .row .panel{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+#panels-section .row .panel .panel-heading{
+    border-bottom: 5px solid rgba(0, 0, 0, 0.29);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+#panels-section .row .panel .panel-footer{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+}
+#panels-section .row #services .panel-heading{
+    background-color: #9e007e;
+}
+#panels-section .row #services {
+    border-bottom: 5px solid #9e007e;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+#panels-section .row #services .panel-body:hover{
+    color: #500040;
+}
+#panels-section .row #services .panel-footer .btn{
+    background-color: #9e007e ;
+}
+#panels-section .row #courses .panel-heading{
+    background-color: #0093b2;
+}
+#panels-section .row #courses .panel-body:hover{
+    color: #0093b2;
+}
+#panels-section .row #courses {
+    border-bottom: 5px solid #0093b2;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+#panels-section .row #courses .panel-footer .btn{
+    background-color: #0093b2;
+}
+#panels-section .row #trainings .panel-heading{
+    background-color: #b9261b;
+}
+#panels-section .row #trainings .panel-body:hover{
+    color: #b9261b;
+}
+#panels-section .row #trainings{
+    border-bottom: 5px solid #b9261b;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+#panels-section .row #trainings .panel-footer .btn{
+    background-color: #b9261b;
+}
+#panels-section .row #course-references .panel-heading{
+    background-color: #b91;
+}
+#panels-section .row #course-references .panel-body:hover{
+    color: #b91;
+}
+#panels-section .row #course-references {
+    border-bottom: 5px solid #b91;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+#panels-section .row #course-references .panel-footer .btn{
+    /*background: radial-gradient(#e65b4d, #C43A2D)*/
+    background-color: #b91;
+}
+/*list inside panel-body*/
+#panels-section .row .panel-body ul li{
+    padding: 10px;
+}
+#panels-section .row .panel-body ul li{
+    border-bottom: 1px dashed gray;
+}
+/*buttons inside panels*/
+#panels-section .row .panel-footer .btn{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    padding: 10px;
+    border-style:ridge;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: white;
+}
+
+.panel-lato{
+    font-family: 'Lato', sans-serif;
+    font-size: medium;
+}
+
+/***************** End Panels Section ***************/
+
+/***************** Clients Section ***************/
+#clients .clients-marquee .wrapper-str3-3{
+    padding-top: 30px !important;
+    padding-bottom: 10px !important;
+    background: url('../images/bg3.jpg');
+}
+#clients .clients-marquee .str3-3{
+    background-color: transparent;
+    line-height: 26px;
+}
+#clients .clients-marquee .str3-3 span{
+    font-family: 'Germania One', cursive !important;
+    font-size: xx-large !important;
+    padding: 30px !important;
+}
+/*************** End Clients Section *************/
+
+
+/*********** ************** *************/
+/********** Desktop view query *********/
+/*********** ************** *************/
+
+@media only screen and (min-width:960px){
+    /*navigation menu*/
+    .navbar-brand img{
+        width: 100%;
+    }
+    .line-space-150{
+        line-height: 150%;
+    }
+    /****** Slide Text Section ******/
+    #slide-text-section .right-text{
+        margin-top: 0px;
+    }
+    .equal, .equal > div[class*='col-'] {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        /*flex:1 1 auto;*/
+    }
+
+    /***** Upper Slider section *****/
+    #slider-section .slider-thumbnail{
+        display: block;
+    }
+    #slider-section .slider-text h4,h3{
+        display: block;
+    }
+    #slider-section .carousel-indicators .btn{
+        padding: 15px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: -100px;
+    }
+    #slider-section .carousel-inner{
+        height: 662px !important;
+    }
+
+    /******** Panel Section *******/
+    #panels-section{
+        padding-bottom: 50px;
+    }
+    #panels-section .container .upper-panels .col-md-12{
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    /******** Logo Slider Section *******/
+    #logo-slider{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+}
+
+/*********** ************** *************/
+/******** End Desktop view query *******/
+/*********** ************** *************/
+
+
+/*-- features --*/
+.bs-example{
+    margin:3em 0 0;
+}
+.nav-tabs > li > a {
+    margin-right: 15px;
+    border-radius: 0;
+    color: #212121;
+    text-transform: uppercase;
+}
+.nav-tabs > li {
+    float: none;
+    display: inline-block;
+}
+.nav-tabs {
+    width: 75%;
+    margin: 0 auto;
+    border-bottom: 1px solid #e1d41f;
+}
+.nav-tabs > li > a:hover {
+    border-color: #e1d41f;
+    border-bottom: 1px solid #fff;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 1px solid #e1d41f;
+    border-bottom: 1px solid #ffffff;
+}
+.w3agile_tab_left h4{
+    font-size:1.2em;
+    color:#212121;
+    line-height:1.5em;
+    text-transform: capitalize;
+}
+.w3agile_tab_left p{
+    color:#999;
+    line-height:2em;
+    font-style:italic;
+    margin:1em 0 2em;
+}
+.w3agile_tab_left ul li{
+    margin-bottom: 1.5em;
+    color: #212121;
+    padding-left: 2.5em;
+    list-style-type: none;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+}
+.w3agile_tab_left ul li:last-child{
+    margin-bottom:0em;
+}
+.w3agile_tabs {
+    margin: 3em 0 0;
+}
+.w3agile_tab_right1 {
+    margin: 2em 0 0;
+}
+/*-- //features --*/
+
+img.lazyOwl {
+    width: 100%;
+}
+
+
+/*-------- events section -------*/
+#events{
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 700px;
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/10.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*-------- events section -------

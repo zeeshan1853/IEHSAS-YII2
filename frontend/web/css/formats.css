@@ -1,0 +1,161 @@
+#formats{
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-right: -15px;
+	margin-left: -15px;
+	height: 100%;
+	background-image:
+	linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+	url(../images/formats-bg.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.formats a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	text-decoration: none;
+} 
+.fornats a:hover {
+	text-decoration: none;
+} 
+.formats a:focus, a:hover {
+	text-decoration: none;
+} 
+
+img.lazyOwl {
+	width: 100%;
+} 
+
+
+/*-- Formats --*/
+.formats {
+	padding: 50px 0 75px;
+}
+.formats p {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 30px;
+} 
+.g1 {
+	position: relative;
+	display: block;
+}  
+.agile-caption {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    z-index: 999;
+    background: rgba(5, 5, 3, 0.78);
+    padding: 1em 0.5em;
+    transition: all 0.8s ease;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    transform-style: preserve-3d; 
+	-webkit-transform:scale(0);
+	-moz-transform:scale(0);
+	-o-transform:scale(0);
+	-ms-transform:scale(0);
+	transform:scale(0);
+}
+.agile-caption h4 {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+.agile-caption h3 {
+	font-weight: bold;
+	color: #3d3d3d;
+}
+.agile-caption span {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    color: #cecece;
+    font-weight: 300;
+}
+.g1:hover .agile-caption {
+	display: block; 
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	-o-transform:scale(1);
+	-ms-transform:scale(1);
+	transform:scale(1);
+} 
+@media(max-width:480px) {
+.agile-caption {
+	padding: 0.5em;
+}
+.agile-caption span {
+	font-size: 0.8em;
+}
+}
+/*-- //Formats --*/
+
+/*-- Index-Page-Styling --*/ 
+
+/*-- Responsive Code --*/ 
+@media screen and (max-width:1024px) {
+	
+	.w3-agileitsline {
+		height: 5px;
+		width: 15%;
+		margin: 10px auto 35px;
+	}
+	
+}
+
+
+@media screen and (max-width:900px) { 
+	.formats ,.download{
+		padding: 50px 0;
+	} 
+}
+
+
+@media screen and (max-width:768px) { 	
+	.formats p {
+		font-size: 18px;
+	}
+	
+}
+
+
+@media screen and (max-width:736px) {	
+	.formats {
+		padding: 50px 0;
+	}
+}
+
+@media screen and (max-width:667px) {
+	.formats p {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width:533px) {
+	.formats p {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width:360px) {
+	.formats p {
+		font-size: 13px;
+	}
+}
+
+@media screen and (max-width:320px) {
+	.formats p {
+		padding: 0 20px;
+		line-height: 25px;
+	}
+} 
+/*-- //Responsive Code --*/

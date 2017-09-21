@@ -34,14 +34,18 @@ AppAsset::register($this);
         <div class="wrap">
             <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'IEHSAS',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             $menuItems = [
-                    ['label' => 'Home', 'url' => ['/site/index']],
+                    ['label' => 'Home', 'url' => ['/site/index']],                    
+                    ['label' => 'Courses', 'url' => ['/courses']],                    
+                    ['label' => 'Trainings', 'url' => ['/trainings']],                    
+                    ['label' => 'Consultancies', 'url' => ['/consultancies']],                    
+                    ['label' => 'News', 'url' => ['/news']],                    
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
