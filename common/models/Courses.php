@@ -14,6 +14,8 @@ use yii\mongodb\ActiveRecord;
  * @property string $course_type
  * @property string $mode_of_study
  * @property double $fee
+ * @property string $banner_img
+ * @property string $thumbnail_img
  */
 class Courses extends ActiveRecord
 {
@@ -38,6 +40,8 @@ class Courses extends ActiveRecord
             'course_type',
             'mode_of_study',
             'fee',
+            'banner_img',
+            'thumbnail_img',
             'created_at',
             'updated_at',
         ];
@@ -49,7 +53,7 @@ class Courses extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'detail', 'duration', 'course_type', 'mode_of_study', 'fee' ,'created_at', 'updated_at'], 'safe'],
+            [['name', 'detail', 'duration', 'course_type', 'mode_of_study', 'fee' , 'banner_img' , 'thumbnail_img', 'created_at', 'updated_at'], 'safe'],
             [ 'name', 'unique'],
 //            [ 'name', 'unique', 'on' => 'create'],
 //            [['name'], 'unique', 'on'=> 'update', 'when' => function($model){ return $model->isAttributeChanged('name');}],
@@ -68,7 +72,9 @@ class Courses extends ActiveRecord
             'duration' => 'Course Duration',
             'course_type' => 'Course Type',
             'mode_of_study' => 'Mode of study',
-            'fee' => 'Fee'
+            'fee' => 'Fee',
+            'banner_img' => 'Banner Image',
+            'thumbnail_img' => 'Thumbnail Image'
         ];
     }
     

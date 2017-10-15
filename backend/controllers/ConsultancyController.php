@@ -14,6 +14,7 @@ use Yii;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\Response;
+use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
 
 /**
@@ -41,7 +42,20 @@ class ConsultancyController extends Controller {
 
             if (isset($model->cons_id) && $model->cons_id !== NULL && $model->cons_id !== '') { //update case
                 $consultancy = Consultancies::findOne($model->cons_id);
+                $image_name = $consultancy->banner_img;
+                $thumbnail_img_name = $consultancy->thumbnail_img;
+                $model->banner_img = UploadedFile::getInstance($model, 'banner_img');
+                $model->thumbnail_img = UploadedFile::getInstance($model, 'thumbnail_img');
+                if (isset($model->banner_img) && $model->banner_img !== NULL && !empty($model->banner_img)) {
+                   $image_name = $model->upload('banner');
+                }
+                if (isset($model->thumbnail_img) && $model->thumbnail_img !== NULL && !empty($model->thumbnail_img)) {
+                    $thumbnail_img_name = $model->upload('thumbnail');
+                }
                 $consultancy->attributes = $model->attributes;
+                $consultancy->banner_img = $image_name;
+                $consultancy->thumbnail_img = $thumbnail_img_name;
+                
                 if ($consultancy->update()) {
                     Yii::$app->getSession()->setFlash('success', 'Consultancy has been updated.');
                     return $this->redirect(['index']);
@@ -49,8 +63,20 @@ class ConsultancyController extends Controller {
                     Yii::$app->getSession()->setFlash('error', 'Nothing has changed');
                 }
             } else {
+                $model->banner_img = UploadedFile::getInstance($model, 'banner_img');
+                $model->thumbnail_img = UploadedFile::getInstance($model, 'thumbnail_img');
                 $consultancy = new Consultancies();
                 $consultancy->attributes = $model->attributes;
+                if (isset($model->banner_img)) {
+                    $image_name = $model->upload('banner');
+                    $consultancy->banner_img = $image_name;
+                    $model->banner_img = $consultancy->banner_img;
+                }
+                if (isset($model->thumbnail_img)) {
+                    $thumbnail_img_name = $model->upload('thumbnail');
+                    $consultancy->thumbnail_img = $thumbnail_img_name; 
+                    $model->thumbnail_img = $consultancy->thumbnail_img;
+                }
                 $consultancy->save() ? Yii::$app->getSession()->setFlash('success', 'Consultancy has been added.') : Yii::$app->getSession()->setFlash('error', 'training has not been added.');
                 return $this->redirect(['index']);
             }

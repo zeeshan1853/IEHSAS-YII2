@@ -1,391 +1,123 @@
-<?php $this->registerCssFile('@web/css/course.css', ['depends' => frontend\assets\AppAsset::className()]); ?>
-<div class="courses_section" id="about">
+<?php
+
+use frontend\assets\AppAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
+?>
+<?php $this->registerCssFile('@web/css/courses_list.css', ['depends' => AppAsset::className()]); ?>
+
+<div class="slider">
+    <div class="callbacks_container">
+        <ul class="rslides" id="slider">
+            <li><img src="images/banner.jpg" class="img-responsive" alt=""/>
+                <div class="banner_desc">
+                    <div class="container">
+                        <h1>IEHSAS</h1>
+                        <h2>List of all courses</h2>
+                    </div>
+                    <div class="details">
+                        <div class="container">
+                            <div class="col-xs-10 dropdown-buttons">   
+                                <div class="col-xs-4 dropdown-button">           			
+                                    <div class="section_room">
+                                        <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                            <option value="null">All Locations</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 dropdown-button">
+                                    <div class="section_room">
+                                        <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                            <option value="null">All Property types</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 dropdown-button">
+                                    <div class="section_room">
+                                        <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                            <option value="null">All contracts</option>
+                                            <option value="null">Sale</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-xs-2 submit_button"> 
+                                <form>
+                                    <input type="submit" value="Search">
+                                </form>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="smart_details">
     <div class="container">
-        <div class="courses-heading">
-            <h2 class="text-center"><span>C</span>ourses</h2>
+        <div class="col-md-10 dropdown-buttons">   
+            <div class="col-md-4 dropdown-button">           			
+                <div class="section_room">
+                    <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                        <option value="null">All Locations</option>
+                        <option value="null">Business</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                        <option value="null">All Property types</option>
+                        <option value="null">House</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 dropdown-button">
+                <div class="section_room">
+                    <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                        <option value="null">All contracts</option>
+                        <option value="null">Sale</option>
+                    </select>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-2 submit_button"> 
+            <form>
+                <input type="submit" value="Search">
+            </form>
         </div>
-        <div>
-            <h3 class="heading-border">NEBOSH</h3>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="content_top">
+    <div class="container">
+        <h4 class="m_3">Most Popular</h4>
+        <div class="grid_1">
+            <?php foreach ($courses as $course) { ?>
+                <div class="col-md-3 box_1">
+                    <a href="<?= Url::to(['course/detail', 'id' => (string) $course->_id]) ?>"><img src="images/default_thumbnail.png" class="img-responsive" alt=""/></a>
+                    <div class="box_2">
+                        <div class="special-wrap"><div class="hot_offer"><span class="m_11">Hot Offer</span></div><div class="forclosure"><span class="m_12">Special Offer</span></div></div>
+                    </div>
+                    <div class="box_3">
+                        <h3><?= Html::a(Html::encode($course->name), ['course/detail', 'id' => (string) $course->_id], ['class' => '']) ?></h3>
+                        <div class="boxed_mini_details clearfix">
+                            <span class="area first">
+                                <strong>Course Duration</strong><i class="fa fa-plane icon1"> </i>
+                                <?= $course->duration ?>
+                            </span>
+                            <span class="status">
+                                <strong>Course Fee</strong><i class="fa fa-retweet icon1"> </i>
+                                <?= $course->fee ?>
+                            </span>
+                            <span class="bedrooms last"><strong>Study Mode</strong><i class="fa fa-bed"></i>
+                                2</span>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+            <div class="clearfix"> </div>
         </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>NEBOSH HSW</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>NEBOSH IGC </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>NEBOSH IDIP</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>			
-        <div>
-            <h3 class="heading-border">IOSH</h3>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>IOSH MS</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-            </div>
-        </div>
-        <div>
-            <h3 class="heading-border">IRCA Lead Auditor</h3>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>OHSAS 18001: 2007</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>OMS ISO 9001: 2015 </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>EMS</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h3 class="heading-border">HABC</h3>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>Fire Safety Level 1</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>Fire safety Level 2 </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>HABC Level 1 Award</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>HABC Level 2 Award</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>HABC Level 3 Award</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>HABC Level 4 Award </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>Train The Trainer Award</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>HABC Level 2 Award in the Control of Substances</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>HABC Levell 2 Award in Principles </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>HABC Level 2 </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>HABC Level 3</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h3 class="heading-border">OSHA</h3>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>OSHA Construction</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile">
-                                <div class="agile_text_box">
-                                    <i class="fa fa-cog" aria-hidden="true"></i>
-                                    <h3>OSHA Industrial </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-
-            </div>
-        </div>
-
-
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="">
-                    <h3 class="heading-border">First Aid </h3>
-                </div>
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>Int. Award in First Aid at work</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-
-            </div>
-        </div>
-        <div>
-            <h3 class="heading-border">TRACCERT Canada H & S Courses</h3>
-        </div>
-        <div class="row margin-top-15">
-            <div class="col-md-6">
-                <div class="courses_grid">
-                    <div class="col-md-6 courses_left_section_grid">
-                        <a href="course-detail.html" class="text-box">
-                            <div class="view view-tile" >
-                                <div class="agile_text_box">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    <h3>TRACCERT Canada H & S Course</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adip.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 courses_left_section_grid">
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-
-            </div>
-        </div>			
     </div>
 </div>

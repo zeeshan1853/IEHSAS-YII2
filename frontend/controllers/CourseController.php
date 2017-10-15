@@ -8,7 +8,8 @@
 
 namespace frontend\controllers;
 
-use yii\mongodb\Connection;
+use common\models\Courses;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -19,18 +20,18 @@ use yii\web\Controller;
 class CourseController extends Controller {
 
     public function actionIndex() {
-        return $this->render('index');
+        $courses = Courses::find()->all();
+        return $this->render('index', ['courses' => $courses]);
     }
 
-    public function actionTemp() {
-//        $connection = new Connection([
-//            'dsn' => 'mongodb://localhost:27017/iehsas',
-//        ]);
-//        if($connection->open()){
-//            echo 'connection khul gya';
-//        }else{
-//            echo 'connection nai khulya';
+    public function actionDetail() {
+        $this->layout = 'course-detail-layout';
+        $request = Yii::$app->request;
+        $course_id = $request->get('id');
+//        if ($course_id !== null) {
+            $course = Courses::findOne($course_id);
 //        }
+        return $this->render('detail', ['course' => $course]);
     }
 
 }

@@ -1,16 +1,16 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $this View */
 /* @var $content string */
 
-use yii\helpers\Html;
+use common\widgets\Alert;
+use frontend\assets\DetailAsset;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
+use yii\helpers\Html;
+use yii\web\View;
 
-AppAsset::register($this);
+DetailAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -59,10 +59,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container1">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+    <div id="home" class="w3ls-banner"> 
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>

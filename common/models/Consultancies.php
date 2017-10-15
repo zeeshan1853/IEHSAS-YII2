@@ -15,6 +15,8 @@ use yii\mongodb\ActiveRecord;
  * @property string $name
  * @property mixed $detail
  * @property string $consultancy_type
+ * @property string $banner_img
+ * @property string $thumbnail_img
  *
  */
 class Consultancies extends ActiveRecord {
@@ -35,6 +37,8 @@ class Consultancies extends ActiveRecord {
             'name',
             'detail',
             'consultancy_type',
+            'banner_img',
+            'thumbnail_img',
             'created_at',
             'updated_at',
         ];
@@ -45,7 +49,7 @@ class Consultancies extends ActiveRecord {
      */
     public function rules() {
         return [
-                [['name', 'detail', 'consultancy_type', 'created_at', 'updated_at'], 'safe'],
+                [['name', 'detail', 'consultancy_type','banner_img' ,'thumbnail_img' , 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -57,6 +61,8 @@ class Consultancies extends ActiveRecord {
             '_id' => 'ID',
             'name' => 'Name',
             'detail' => 'Detail',
+            'banner_img' => 'Banner Image',
+            'thumbnail_img' => 'Thumbnail Image',
             'created_at' => 'Date Created',
             'updated_at' => 'Date Updated',
         ];

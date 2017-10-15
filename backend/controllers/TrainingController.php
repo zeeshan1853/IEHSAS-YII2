@@ -14,6 +14,7 @@ use Yii;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\Response;
+use yii\web\UploadedFile;
 use yii\widgets\ActiveForm;
 
 /**
@@ -41,7 +42,21 @@ class TrainingController extends Controller {
 
             if (isset($model->t_id) && $model->t_id !== NULL && $model->t_id !== '') { //update case
                 $training = Trainings::findOne($model->t_id);
+                
+                $image_name = $training->banner_img;
+                $thumbnail_img_name = $training->thumbnail_img;
+                $model->banner_img = UploadedFile::getInstance($model, 'banner_img');
+                $model->thumbnail_img = UploadedFile::getInstance($model, 'thumbnail_img');
+                if (isset($model->banner_img) && $model->banner_img !== NULL && !empty($model->banner_img)) {
+                   $image_name = $model->upload('banner');
+                }
+                if (isset($model->thumbnail_img) && $model->thumbnail_img !== NULL && !empty($model->thumbnail_img)) {
+                    $thumbnail_img_name = $model->upload('thumbnail');
+                }
                 $training->attributes = $model->attributes;
+                $training->banner_img = $image_name;
+                $training->thumbnail_img = $thumbnail_img_name;
+                
                 if ($training->update()) {
                     Yii::$app->getSession()->setFlash('success', 'training has been updated.');
                     return $this->redirect(['index']);
@@ -49,8 +64,20 @@ class TrainingController extends Controller {
                     Yii::$app->getSession()->setFlash('error', 'Nothing has changed');
                 }
             } else {
+                $model->banner_img = UploadedFile::getInstance($model, 'banner_img');
+                $model->thumbnail_img = UploadedFile::getInstance($model, 'thumbnail_img');
                 $training = new Trainings();
                 $training->attributes = $model->attributes;
+                if (isset($model->banner_img)) {
+                    $image_name = $model->upload('banner');
+                    $training->banner_img = $image_name;
+                    $model->banner_img = $training->banner_img;
+                }
+                if (isset($model->thumbnail_img)) {
+                    $thumbnail_img_name = $model->upload('thumbnail');
+                    $training->thumbnail_img = $thumbnail_img_name; 
+                    $model->thumbnail_img = $training->thumbnail_img;
+                }
                 $training->save() ? Yii::$app->getSession()->setFlash('success', 'training has been added.') : Yii::$app->getSession()->setFlash('error', 'training has not been added.');
                 return $this->redirect(['index']);
             }

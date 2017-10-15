@@ -17,6 +17,8 @@ use yii\mongodb\ActiveRecord;
  * @property string $training_type
  * @property string $mode_of_training
  * @property double $fee
+ * @property string $banner_img
+ * @property string $thumbnail_img
  * 
  */
 
@@ -35,6 +37,8 @@ class Trainings extends ActiveRecord {
             'training_type',
             'mode_of_training',
             'fee',
+            'banner_img',
+            'thumbnail_img',
             'created_at',
             'updated_at',
         ];
@@ -47,7 +51,7 @@ class Trainings extends ActiveRecord {
     public function rules()
     {
         return [
-            [['name', 'detail', 'duration', 'training_type', 'mode_of_training', 'fee' ,'created_at', 'updated_at'], 'safe'],
+            [['name', 'detail', 'duration', 'training_type', 'mode_of_training', 'fee' ,'banner_img' ,'thumbnail_img' ,'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,7 +67,9 @@ class Trainings extends ActiveRecord {
             'duration' => 'Training Duration',
             'training_type' => 'Training Type',
             'mode_of_training' => 'Mode of Training',
-            'fee' => 'Fee'
+            'fee' => 'Fee',
+            'banner_img' => 'Banner Image',
+            'thumbnail_img' => 'Thumbnail Image'
         ];
     }
     
