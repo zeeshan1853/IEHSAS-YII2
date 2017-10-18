@@ -8,6 +8,9 @@
 
 namespace frontend\controllers;
 
+use common\models\Consultancies;
+use common\models\Trainings;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -18,7 +21,16 @@ use yii\web\Controller;
 class ConsultancyController extends Controller {
 
     public function actionIndex() {
-        return $this->render('index');
+        $consultancies = Consultancies::find()->all();
+        return $this->render('index', ['consultancies' => $consultancies]);
+    }
+    
+    public function actionDetail() {
+        $this->layout = 'course-detail-layout';
+        $request = Yii::$app->request;
+        $consultancy_id = $request->get('id');
+        $consultancy = Consultancies::findOne($consultancy_id);
+        return $this->render('detail', ['consultancy' => $consultancy]);
     }
 
 }

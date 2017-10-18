@@ -28,9 +28,7 @@ class CourseController extends Controller {
         $this->layout = 'course-detail-layout';
         $request = Yii::$app->request;
         $course_id = $request->get('id');
-//        if ($course_id !== null) {
-            $course = Courses::findOne($course_id);
-//        }
+        $course = Courses::findOne($course_id);
         return $this->render('detail', ['course' => $course]);
     }
 

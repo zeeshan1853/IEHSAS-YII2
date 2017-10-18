@@ -13,7 +13,7 @@ use yii\helpers\Url;
                 <div class="banner_desc">
                     <div class="container">
                         <h1>IEHSAS</h1>
-                        <h2>List of all Consultancies</h2>
+                        <h2>List of all Trainings</h2>
                     </div>
                     <div class="details">
                         <div class="container">
@@ -94,15 +94,27 @@ use yii\helpers\Url;
     <div class="container">
         <h4 class="m_3">Most Popular</h4>
         <div class="grid_1">
-            <?php foreach ($consultancies as $consultancy) { ?>
+            <?php foreach ($trainings as $training) { ?>
                 <div class="col-md-3 box_1">
-                    <a href="<?= Url::to(['consultancy/detail', 'id' => (string) $consultancy->_id]) ?>"><img src="images/default_thumbnail.png" class="img-responsive" alt=""/></a>
+                    <a href="<?= Url::to(['training/detail', 'id' => (string) $training->_id]) ?>"><img src="images/default_thumbnail.png" class="img-responsive" alt=""/></a>
                     <div class="box_2">
                         <div class="special-wrap"><div class="hot_offer"><span class="m_11">Hot Offer</span></div><div class="forclosure"><span class="m_12">Special Offer</span></div></div>
                     </div>
                     <div class="box_3">
-                        <h3><?= Html::a(Html::encode($consultancy->name), ['consultancy/detail', 'id' => (string) $consultancy->_id], ['class' => '']) ?></h3>
+                        <h3><?= Html::a(Html::encode($training->name), ['training/detail', 'id' => (string) $training->_id], ['class' => '']) ?></h3>
                         <div class="boxed_mini_details clearfix">
+                            <span class="area first">
+                                <strong>Training Duration</strong><i class="fa fa-plane icon1"> </i>
+                                <?= $training->duration ?>
+                            </span>
+                            <span class="status">
+                                <strong>Training Fee</strong><i class="fa fa-retweet icon1"> </i>
+                                <?= $training->fee ?>
+                            </span>
+                            <span class="bedrooms last">
+                                <strong>Training Mode</strong><i class="fa fa-bed"></i>
+                                <?= $training->mode_of_training ?>
+                            </span>
                         </div>
                     </div>
                 </div>
